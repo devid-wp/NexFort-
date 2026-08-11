@@ -8623,7 +8623,7 @@ https://github.com/telegramdesktop/tdesktop/blob/master/LEGAL
 
 // AyuGram keys generated
 
-"ayu_AyuPreferences" = "AyuGram Preferences";
+"ayu_AyuPreferences" = "NexFort Preferences";
 "ayu_DocsText" = "Documentation";
 "ayu_CategoryGeneral" = "General";
 "ayu_CategoryAppearance" = "Appearance";
@@ -9024,13 +9024,13 @@ https://github.com/telegramdesktop/tdesktop/blob/master/LEGAL
 "ayu_OfficialResourcePopup" = "**{item}** is the official resource of **exteraGram** or **AyuGram**.";
 "ayu_MutualContactInfo" = "This contact is mutual.";
 "ayu_SessionInfoOfficialApp" = "Official app";
-"ayu_SettingsWatermark" = "AyuGram is developed and maintained by Radolyn Labs.";
-"ayu_SettingsDescription" = "Telegram Desktop fork focused on customization and ToS-breaking features.";
+"ayu_SettingsWatermark" = "NexFort is developed and maintained by the NexFort project.";
+"ayu_SettingsDescription" = "Telegram Desktop fork focused on customization, privacy, and power-user features.";
 "ayu_ConfirmationSticker" = "Do you want to send this sticker?";
 "ayu_ConfirmationGIF" = "Do you want to send this GIF?";
 "ayu_ConfirmationVoice" = "Do you want to send this voice message?";
 "ayu_ConfirmationRound" = "Do you want to send this round video?";
-"ayu_IntroAbout" = "Welcome to the AyuGram Desktop.\nMake Telegram your own.";
-"ayu_AboutText1" = "ToS breaking Telegram client based on {api_link}.";
-"ayu_UpdateAyuGram" = "Update AyuGram";
+"ayu_IntroAbout" = "Welcome to NexFort.\nMake Telegram your own.";
+"ayu_AboutText1" = "NexFort is a Telegram Desktop client based on {api_link}.";
+"ayu_UpdateAyuGram" = "Update NexFort";
 "ayu_UtilityRestartRequired" = "The app will close in 5 seconds.";
