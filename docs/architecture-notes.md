@@ -107,6 +107,10 @@ The repository keeps additional source or integration directories under `Telegra
 - A local offline review cannot establish whether each pinned revision is behind its upstream default branch. No dependency is marked as safe to upgrade automatically.
 - Before a release, compare every submodule revision with its upstream repository, record the comparison date and security advisories, then update only after compatibility and license review.
 
+## Dependency Change Rule
+
+No dependency should be removed only because it appears unused or old. Removal requires a confirmed absence of references, a feature-impact check, and a successful build/test review. Until those checks exist, the dependency remains part of the supported baseline.
+
 ## Audit Status
 
 This document records architecture, the major-dependency inventory, the current necessity classification, and local license/freshness review findings. Upstream freshness remains unconfirmed until an online revision comparison is performed.
