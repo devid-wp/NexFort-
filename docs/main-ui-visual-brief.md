@@ -83,3 +83,12 @@ The first implementation slice should be the desktop shell and sidebar state onl
 - verify compact-window collapse behavior;
 - validate keyboard focus and existing theme tokens;
 - leave message rendering and composer behavior unchanged until the shell is stable.
+
+## Existing Ownership
+
+- `window/window_controller.cpp::setupSideBar()` owns sidebar setup and reacts to filter-menu changes.
+- `window/window.style` owns the sidebar width and `SideBarButton` visual variants.
+- `window/window_filters_menu.*` owns filter/sidebar button creation, focus, and selection state.
+- `mainwidget.*` owns the column geometry and the transition between dialogs, history, and secondary sections.
+
+The first code change should extend these owners only after the desired sidebar state behavior is selected. No new parallel sidebar abstraction is needed.
