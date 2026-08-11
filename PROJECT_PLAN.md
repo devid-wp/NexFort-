@@ -32,7 +32,7 @@ NexFort — кастомный Telegram-клиент на базе AyuGram Deskt
 - [x] Найти обработку сообщений
 - [x] Найти navigation/chat switching
 - [x] Найти hotkeys
-- [ ] Найти local storage
+- [x] Найти local storage
 - [ ] Найти network/update layer
 - [ ] Найти AyuGram-specific код
 
