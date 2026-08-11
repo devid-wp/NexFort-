@@ -1886,10 +1886,17 @@ def overlay_coverage(inventory, repository_path):
 
 def overlay_outside_inventory(source, inventory, submodules):
 	outside = []
+	untracked = []
 	for repository_path in [""] + submodules:
 		repository = source / repository_path if repository_path else source
 		coverage = overlay_coverage(inventory, repository_path)
 		dirty = changed_paths(repository)
+		untracked_paths = set(run_git(
+			repository,
+			"ls-files",
+			"--others",
+			"--exclude-standard",
+		).stdout.splitlines())
 		gitlinks = set(gitlink_paths(repository, dirty))
 		for path in dirty:
 			covered = path_is_covered(path, coverage)
@@ -1899,10 +1906,15 @@ def overlay_outside_inventory(source, inventory, submodules):
 			)
 			if covered or covered_gitlink:
 				continue
-			outside.append(
-				f"{repository_path}/{path}" if repository_path else path
-			)
-	return outside
+			if path in untracked_paths:
+				untracked.append(
+					f"{repository_path}/{path}" if repository_path else path
+				)
+			else:
+				outside.append(
+					f"{repository_path}/{path}" if repository_path else path
+				)
+	return untracked, outside
 
 
 def clear_overlay_submodule_bundle(work):
@@ -1957,7 +1969,11 @@ def command_overlay_save(args):
 	work = overlay_work_dir(config, slot, args.task)
 	inventory = read_overlay_paths(work)
 	groups, submodules = overlay_inventory_groups(source, inventory)
-	outside = overlay_outside_inventory(source, inventory, submodules)
+	untracked, outside = overlay_outside_inventory(source, inventory, submodules)
+	if untracked:
+		raise WorkspaceError(
+			"Dirty source paths are untracked: " + ", ".join(untracked)
+		)
 	if outside:
 		raise WorkspaceError(
 			"Dirty source paths are outside the overlay inventory: "
@@ -2119,13 +2135,14 @@ def command_overlay_apply(args):
 			conflicts.append(
 				f"{repository_path}/{path}" if repository_path else path
 			)
-	outside = overlay_outside_inventory(source, inventory, submodules)
-	applied = not errors and not conflicts and not outside
+	untracked, outside = overlay_outside_inventory(source, inventory, submodules)
+	applied = not errors and not conflicts and not outside and not untracked
 	print(json.dumps({
 		"applied": applied,
 		"conflicts": conflicts,
 		"error": "\n".join(errors) if errors else None,
 		"outside_inventory": outside,
+		"untracked": untracked,
 		"submodules": [entry["path"] for entry in submodule_entries],
 		"task": args.task,
 	}, indent=2, sort_keys=True))
