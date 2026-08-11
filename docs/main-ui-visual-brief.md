@@ -1,0 +1,85 @@
+# NexFort Main UI Visual Brief
+
+## Direction
+
+NexFort should feel like a focused desktop power tool: dense, calm, fast to scan, and unmistakably built for repeated chat workflows. Preserve Telegram Desktop's token-based style system and theme support. Avoid marketing composition, decorative cards, gradients, and ornamental panels.
+
+## Desktop Layout
+
+Use a three-region application shell:
+
+1. **Navigation rail**
+   - Width: existing compact window control scale.
+   - Contains account/avatar, primary folders, saved items, settings, and command palette access.
+   - Icon-first controls with tooltips; show labels only when the rail is expanded.
+   - Active item uses the existing semantic active background and foreground tokens.
+
+2. **Chat list column**
+   - Fixed, resizable column between navigation and conversation content.
+   - Header contains search, filter/folder access, and compose action.
+   - Rows prioritize avatar, title, latest message preview, time, unread count, mute state, and draft state.
+   - Keep row height stable across hover, unread, selected, and loading states.
+   - Use one clear selected-row treatment; do not stack multiple competing badges.
+
+3. **Conversation workspace**
+   - Header contains peer identity, topic/context, search, call actions, and overflow actions.
+   - Message history fills the primary vertical space.
+   - Composer remains anchored to the bottom and expands only within a defined maximum height.
+   - Secondary panels and previews slide from the right without changing the main column's identity.
+
+## Responsive Behavior
+
+- Below the compact desktop width, collapse the navigation rail into the chat-list header/menu.
+- On narrow windows, show either chat list or conversation workspace as the primary view, with predictable back navigation.
+- Never allow chat rows, toolbar buttons, or composer controls to resize because of text wrapping.
+- Preserve keyboard focus visibility and the same active/selected semantics at every width.
+
+## Visual Hierarchy
+
+- Use one primary surface background, one elevated/over surface, one selected surface, and semantic status colors.
+- Keep primary text high contrast, secondary text quieter, and metadata smaller without becoming faint.
+- Reserve accent colors for active navigation, links, unread state, and explicit action feedback.
+- Use existing day/night theme tokens instead of introducing raw colors in widgets.
+- Keep border radius restrained and consistent with existing style tokens.
+
+## Typography
+
+- Reuse the shared normal and semibold font tokens.
+- Conversation titles and chat names use semibold weight; previews and metadata use normal weight.
+- Keep labels short and action-oriented.
+- Do not use display-scale type inside the application shell.
+
+## Interaction States
+
+- Hover: subtle surface change, no layout shift.
+- Active/selected: clear semantic background and foreground contrast.
+- Focus: visible keyboard focus ring or equivalent existing control state.
+- Pressed: use existing ripple/pressed token.
+- Disabled: reduce contrast without removing legibility.
+- Loading: preserve the final geometry and replace content with stable placeholders.
+
+## Core Workflows
+
+- Opening a chat should keep the selected chat row and conversation header visually synchronized.
+- Search should be available from the chat-list header and conversation header without duplicating unrelated controls.
+- Frequent actions should be reachable from keyboard shortcuts and the command palette.
+- Context menus should expose actions in task order: open, reply/forward, save/copy, edit/delete, and advanced tools.
+- Settings should use the same shell and spacing rhythm as the rest of the app.
+
+## Implementation Constraints
+
+- Put dimensions, spacing, colors, fonts, radii, and icon states in `.style` files.
+- Keep C++ responsible for behavior and state, not visual constants.
+- Reuse existing `dialogs/`, `history/`, `window/`, `settings/`, and `ui/` ownership boundaries.
+- Make one workflow-sized change at a time and validate it before moving to the next region.
+- Do not remove upstream functionality solely to achieve visual simplicity.
+
+## First Slice
+
+The first implementation slice should be the desktop shell and sidebar state only:
+
+- define the navigation rail states;
+- align chat-list and conversation selection state;
+- verify compact-window collapse behavior;
+- validate keyboard focus and existing theme tokens;
+- leave message rendering and composer behavior unchanged until the shell is stable.
