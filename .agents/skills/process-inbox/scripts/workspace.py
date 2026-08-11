@@ -1906,7 +1906,15 @@ def overlay_outside_inventory(source, inventory, submodules):
 			)
 			if covered or covered_gitlink:
 				continue
-			if path in untracked_paths:
+			tracked = run_git(
+				repository,
+				"ls-files",
+				"--error-unmatch",
+				"--",
+				path,
+				check=False,
+			)
+			if path in untracked_paths or tracked.returncode:
 				untracked.append(
 					f"{repository_path}/{path}" if repository_path else path
 				)

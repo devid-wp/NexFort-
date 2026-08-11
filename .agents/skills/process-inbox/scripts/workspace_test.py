@@ -1621,6 +1621,25 @@ class MechanicsTest(unittest.TestCase):
 						restore="run",
 					)
 
+	def test_overlay_outside_inventory_distinguishes_untracked_and_outside(self):
+		with tempfile.TemporaryDirectory() as temporary:
+			root = Path(temporary)
+			source, _, _, _ = source_repo_with_task(root)
+			tracked = source / "tracked.txt"
+			tracked.write_text("base\noverlay\n", encoding="utf-8")
+			(source / "stray.txt").write_text("stray\n", encoding="utf-8")
+			other = source / "other.txt"
+			other.write_text("tracked other\n", encoding="utf-8")
+			git(source, "add", "other.txt")
+			git(source, "commit", "-m", "Add other")
+			other.write_text("dirty\n", encoding="utf-8")
+
+			untracked, outside = workspace.overlay_outside_inventory(
+				source, ["tracked.txt"], []
+			)
+			self.assertEqual(untracked, ["stray.txt"])
+			self.assertEqual(outside, ["other.txt"])
+
 	def test_source_commit_stages_owned_paths_and_marks_green(self):
 		with tempfile.TemporaryDirectory() as temporary:
 			root = Path(temporary)
