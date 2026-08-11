@@ -127,6 +127,8 @@ Border radii are defined in style files through shared tokens such as `roundRadi
 
 Typography uses the shared style font families and semantic weights (`normalFont`, `semiboldFont`, and component-specific scaled sizes). New headings, labels, and message text should reuse these tokens rather than introduce platform-dependent font stacks.
 
+Icons are defined through style icon layers and shared resource paths, with platform assets handled separately by the resource and packaging files. Reuse existing semantic icon definitions for controls; the project-owned NexFort application icon remains a separate open branding item.
+
 ## Audit Status
 
 This document records architecture, the major-dependency inventory, the current necessity classification, and local license/freshness review findings. Upstream freshness remains unconfirmed until an online revision comparison is performed.
