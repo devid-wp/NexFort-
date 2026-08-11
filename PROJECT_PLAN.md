@@ -108,7 +108,7 @@ NexFort — кастомный Telegram-клиент на базе AyuGram Deskt
 ### Design System
 
 - [x] Определить основной стиль
-- [ ] Цветовую систему
+- [x] Цветовую систему
 - [ ] Размеры отступов
 - [ ] Border radius
 - [ ] Typography

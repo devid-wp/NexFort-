@@ -119,6 +119,8 @@ The current numeric application version is also used by local-storage migration,
 
 The current UI is a dense desktop messaging interface built on Telegram Desktop's style system. `ui/basic.style` and `ui/colors.palette` provide shared visual tokens; `settings/`, `window/`, `dialogs/`, and `ui/chat/` add domain-specific styles. Fonts, colors, spacing, borders, and radii are defined in `.style` files and consumed through generated `st::` values. NexFort redesign work should preserve this token-based architecture and focus on hierarchy, scanning, and power-user workflows before introducing new visual primitives.
 
+The color system is semantic and theme-aware: shared tokens such as `windowBg`, `windowFg`, `activeButtonBg`, dialog palettes, and incoming/outgoing message palettes are resolved through the day/night theme resources. New NexFort colors should be added as semantic tokens, not hardcoded in widgets.
+
 ## Audit Status
 
 This document records architecture, the major-dependency inventory, the current necessity classification, and local license/freshness review findings. Upstream freshness remains unconfirmed until an online revision comparison is performed.
