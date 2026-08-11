@@ -115,6 +115,10 @@ No dependency should be removed only because it appears unused or old. Removal r
 
 The current numeric application version is also used by local-storage migration, serialized data compatibility, changelog checks, and update ordering. A NexFort-specific version sequence must be designed before changing `AppVersion`; changing only the display string would make release metadata inconsistent. The branding version task remains open until that policy and its migration/update compatibility are defined.
 
+## UI Direction
+
+The current UI is a dense desktop messaging interface built on Telegram Desktop's style system. `ui/basic.style` and `ui/colors.palette` provide shared visual tokens; `settings/`, `window/`, `dialogs/`, and `ui/chat/` add domain-specific styles. Fonts, colors, spacing, borders, and radii are defined in `.style` files and consumed through generated `st::` values. NexFort redesign work should preserve this token-based architecture and focus on hierarchy, scanning, and power-user workflows before introducing new visual primitives.
+
 ## Audit Status
 
 This document records architecture, the major-dependency inventory, the current necessity classification, and local license/freshness review findings. Upstream freshness remains unconfirmed until an online revision comparison is performed.
