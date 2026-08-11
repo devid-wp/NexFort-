@@ -111,6 +111,10 @@ The repository keeps additional source or integration directories under `Telegra
 
 No dependency should be removed only because it appears unused or old. Removal requires a confirmed absence of references, a feature-impact check, and a successful build/test review. Until those checks exist, the dependency remains part of the supported baseline.
 
+## Branding Version Note
+
+The current numeric application version is also used by local-storage migration, serialized data compatibility, changelog checks, and update ordering. A NexFort-specific version sequence must be designed before changing `AppVersion`; changing only the display string would make release metadata inconsistent. The branding version task remains open until that policy and its migration/update compatibility are defined.
+
 ## Audit Status
 
 This document records architecture, the major-dependency inventory, the current necessity classification, and local license/freshness review findings. Upstream freshness remains unconfirmed until an online revision comparison is performed.
