@@ -92,6 +92,14 @@ These three dependencies are required by the currently included AyuGram features
 
 The repository keeps additional source or integration directories under `Telegram/ThirdParty/`, including `ffmpeg`, `tgcalls`, `libfido2`, `libcbor`, `libprisma`, `rlottie`, `QR`, `kcoreaddons`, `xxHash`, `lz4`, `hunspell`, `cmark-gfm`, `range-v3`, `GSL`, and platform input-method integrations. Their necessity, licenses, and maintenance status require separate review.
 
+## License Review
+
+- The application license is GPLv3, documented in `LICENSE` and `LEGAL`.
+- `LICENSE` and `LEGAL` include the explicit exception allowing linking portions of the program with OpenSSL.
+- AyuGram bundled JSON and SQLite sources contain upstream copyright/license notices in their source headers.
+- The current `Telegram/ThirdParty/` checkout does not contain consistently named top-level `LICENSE`, `COPYING`, or `NOTICE` files for every dependency.
+- Before redistribution, each bundled dependency must be matched to its upstream license and the required notices must be retained in the release artifacts. This is a documentation gap, not a reason to remove the dependency.
+
 ## Audit Status
 
-This document records architecture, the major-dependency inventory, and the current necessity classification. License review and stale-dependency review are intentionally separate tasks.
+This document records architecture, the major-dependency inventory, the current necessity classification, and the local license-review findings. Stale-dependency review remains a separate task.
