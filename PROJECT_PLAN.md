@@ -63,7 +63,7 @@ NexFort — кастомный Telegram-клиент на базе AyuGram Deskt
 ### Functions
 
 - [x] Составить список функций AyuGram
-- [ ] Пометить каждую:
+- [x] Пометить каждую:
   - KEEP
   - MODIFY
   - REMOVE
