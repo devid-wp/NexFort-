@@ -92,3 +92,11 @@ The first implementation slice should be the desktop shell and sidebar state onl
 - `mainwidget.*` owns the column geometry and the transition between dialogs, history, and secondary sections.
 
 The first code change should extend these owners only after the desired sidebar state behavior is selected. No new parallel sidebar abstraction is needed.
+
+## Chat List Ownership
+
+- `dialogs/dialogs_widget.*` owns chat-list search, row selection, active-chat synchronization, narrow-layout behavior, and navigation into history.
+- `dialogs/dialogs.style` owns dialog row palettes, text states, row dimensions, badges, and width-related tokens.
+- `dialogs/dialogs_inner_widget.*` owns the scrollable row surface and keyboard/selection interactions inside the list.
+
+The chat-list slice should first preserve row geometry and active selection while aligning the visual states with the brief. Search, badges, and row actions should remain behaviorally unchanged during that pass.
