@@ -108,3 +108,12 @@ The chat-list slice should first preserve row geometry and active selection whil
 - Header controls already have explicit search, selection, call, info, and menu objects; redesign should refine their grouping and visual priority without duplicating behavior.
 
 The chat-header slice should preserve active-chat synchronization and search/call semantics while making the primary identity, secondary status, and overflow actions visually distinct.
+
+## Message Bubble Ownership
+
+- `history/view/history_view_message.*` owns message-view abstractions and message-specific rendering behavior.
+- `history/view/history_view_list_widget.*` owns the visible message list and item layout delegation.
+- `history/history_inner_widget.*` owns selection, repaint requests, scrolling, and interaction coordination.
+- `ui/chat/chat.style` owns incoming/outgoing palettes, selected states, bubble radii, message typography, and message spacing tokens.
+
+The message-bubble slice must preserve sender/media/service-message semantics and selection behavior. Visual changes should begin in semantic chat style tokens before touching message rendering code.
