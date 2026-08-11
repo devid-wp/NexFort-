@@ -113,7 +113,7 @@ NexFort — кастомный Telegram-клиент на базе AyuGram Deskt
 - [x] Border radius
 - [x] Typography
 - [x] Иконки
-- [ ] Hover/active states
+- [x] Hover/active states
 
 ### Main UI
 

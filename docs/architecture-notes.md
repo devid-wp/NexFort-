@@ -129,6 +129,8 @@ Typography uses the shared style font families and semantic weights (`normalFont
 
 Icons are defined through style icon layers and shared resource paths, with platform assets handled separately by the resource and packaging files. Reuse existing semantic icon definitions for controls; the project-owned NexFort application icon remains a separate open branding item.
 
+Interaction states are represented by style variants such as `Over`, `Active`, `Selected`, and ripple colors. New controls should use these state tokens and preserve keyboard/focus feedback instead of adding ad-hoc event colors in C++.
+
 ## Audit Status
 
 This document records architecture, the major-dependency inventory, the current necessity classification, and local license/freshness review findings. Upstream freshness remains unconfirmed until an online revision comparison is performed.
