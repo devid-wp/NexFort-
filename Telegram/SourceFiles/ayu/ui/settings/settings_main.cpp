@@ -71,7 +71,7 @@ void BuildVersionInfo(SectionBuilder &builder) {
 				ctx.container,
 				rpl::single(
 					QString("NexFort v")
-					+ QString::fromLatin1(AppVersionStr)),
+					+ QString::fromLatin1(NexFortVersionStr)),
 				st::boxTitle),
 			.align = style::al_top,
 		};

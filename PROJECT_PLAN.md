@@ -97,7 +97,7 @@ NexFort — кастомный Telegram-клиент на базе AyuGram Deskt
 - [x] About screen
 - [x] Название окна
 - [x] Названия настроек
-- [ ] Собственная версия приложения
+- [x] Собственная версия приложения
 - [x] Убрать ненужные AyuGram branding элементы
 - [x] Сохранить обязательные license/copyright notices
 

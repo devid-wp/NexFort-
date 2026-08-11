@@ -179,7 +179,8 @@ Widget::Widget(
 		}, lifetime());
 	}
 
-	_footer->setText(QString("NexFort v%1").arg(currentVersionText()));
+	_footer->setText(QString("NexFort v%1").arg(
+		QString::fromLatin1(NexFortVersionStr)));
 }
 
 rpl::producer<> Widget::showSettingsRequested() const {

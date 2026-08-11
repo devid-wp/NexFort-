@@ -113,7 +113,7 @@ No dependency should be removed only because it appears unused or old. Removal r
 
 ## Branding Version Note
 
-The current numeric application version is also used by local-storage migration, serialized data compatibility, changelog checks, and update ordering. A NexFort-specific version sequence must be designed before changing `AppVersion`; changing only the display string would make release metadata inconsistent. The branding version task remains open until that policy and its migration/update compatibility are defined.
+The numeric `AppVersion` remains the Telegram/AyuGram compatibility version because it is used by local-storage migration, serialized data compatibility, changelog checks, and update ordering. NexFort exposes an independent product version (`NexFortVersionStr`, currently `0.1`) in user-facing About and onboarding surfaces. Future releases must update both values deliberately: the product version for users and the compatibility version only when migration/update semantics support it.
 
 ## UI Direction
 
