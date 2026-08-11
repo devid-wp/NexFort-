@@ -92,7 +92,7 @@ NexFort — кастомный Telegram-клиент на базе AyuGram Deskt
 
 ## Phase 3 — NexFort Branding
 
-- [ ] Название `NexFort`
+- [x] Название `NexFort`
 - [ ] Иконка
 - [ ] About screen
 - [ ] Название окна
