@@ -65,3 +65,7 @@ No area is currently classified as `REMOVE`. Removal requires a confirmed produc
 ## Cleanup Gate
 
 Before removing any AyuGram feature, record the reason, confirm that no supported NexFort workflow depends on it, check its build references, and define a focused validation step. Until all four checks are complete, the feature remains `KEEP` or `UNKNOWN`.
+
+## Open Branding Item
+
+- NexFort icon: `UNKNOWN` until a project-owned artwork asset is supplied. Existing `icon*.png` and `.ico` files are AyuGram or Telegram branding and are not repurposed.
