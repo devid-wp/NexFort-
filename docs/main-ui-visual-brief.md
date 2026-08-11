@@ -117,3 +117,12 @@ The chat-header slice should preserve active-chat synchronization and search/cal
 - `ui/chat/chat.style` owns incoming/outgoing palettes, selected states, bubble radii, message typography, and message spacing tokens.
 
 The message-bubble slice must preserve sender/media/service-message semantics and selection behavior. Visual changes should begin in semantic chat style tokens before touching message rendering code.
+
+## Input Field Ownership
+
+- `history/history_widget.cpp` creates the primary chat input and wires its session, draft, and send behavior.
+- `history/view/controls/history_view_compose_controls.*` owns send, attach, reply, edit, draft, voice, and auxiliary compose controls.
+- `chat_helpers/message_field.*` owns text editing behavior, markdown/entities, autocomplete integration, links, emoji, and spellcheck hooks.
+- `chat_helpers/chat_helpers.style` owns compose field palette, max height, icon states, send-button states, and compose-area geometry.
+
+The input-field slice should preserve draft, reply, edit, attachment, voice, and keyboard-submit behavior. Visual work should start with the compose style tokens and stable max-height geometry.
