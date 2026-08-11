@@ -126,3 +126,13 @@ The message-bubble slice must preserve sender/media/service-message semantics an
 - `chat_helpers/chat_helpers.style` owns compose field palette, max height, icon states, send-button states, and compose-area geometry.
 
 The input-field slice should preserve draft, reply, edit, attachment, voice, and keyboard-submit behavior. Visual work should start with the compose style tokens and stable max-height geometry.
+
+## Context Menu Ownership
+
+- `history/view/history_view_context_menu.*` builds message and media actions.
+- `window/window_peer_menu.*` builds peer, chat, and thread actions.
+- `dialogs/dialogs_inner_widget.*` handles context-menu requests from chat-list rows.
+- `ayu/ui/context_menu.*` adds AyuGram-specific conditional actions and menu subtext.
+- Shared `Ui::PopupMenu` styles provide menu geometry, icons, separators, hover, and keyboard states.
+
+Context-menu redesign should keep action order task-oriented: open/reply/forward, save/copy, edit/delete, then advanced tools. Conditional AyuGram actions must remain discoverable without visually competing with primary actions.
