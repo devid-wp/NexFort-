@@ -100,3 +100,11 @@ The first code change should extend these owners only after the desired sidebar 
 - `dialogs/dialogs_inner_widget.*` owns the scrollable row surface and keyboard/selection interactions inside the list.
 
 The chat-list slice should first preserve row geometry and active selection while aligning the visual states with the brief. Search, badges, and row actions should remain behaviorally unchanged during that pass.
+
+## Chat Header Ownership
+
+- `history/view/history_view_top_bar_widget.*` owns the conversation header title, peer status, unread badge, search mode, call actions, info/menu actions, and narrow-layout controls.
+- `history/history_widget.*` supplies the active-chat state and refreshes the header when the conversation changes.
+- Header controls already have explicit search, selection, call, info, and menu objects; redesign should refine their grouping and visual priority without duplicating behavior.
+
+The chat-header slice should preserve active-chat synchronization and search/call semantics while making the primary identity, secondary status, and overflow actions visually distinct.
