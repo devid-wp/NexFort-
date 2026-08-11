@@ -52,6 +52,8 @@ NexFort — кастомный Telegram-клиент на базе AyuGram Deskt
 
 где будет краткая карта проекта.
 
+- [x] Создана краткая карта проекта и dependency audit
+
 ---
 
 ## Phase 2 — Cleanup
