@@ -123,6 +123,8 @@ The color system is semantic and theme-aware: shared tokens such as `windowBg`, 
 
 Spacing is likewise token-based. Component styles define margins, padding, skips, and fixed control dimensions in scaled `px` values; C++ code consumes the generated `st::` values. New UI work should follow this system so interface scale settings remain correct.
 
+Border radii are defined in style files through shared tokens such as `roundRadiusLarge` and component-specific values. Keep radius decisions in styles so themes and interface scaling remain consistent.
+
 ## Audit Status
 
 This document records architecture, the major-dependency inventory, the current necessity classification, and local license/freshness review findings. Upstream freshness remains unconfirmed until an online revision comparison is performed.
