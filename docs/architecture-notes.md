@@ -100,6 +100,13 @@ The repository keeps additional source or integration directories under `Telegra
 - The current `Telegram/ThirdParty/` checkout does not contain consistently named top-level `LICENSE`, `COPYING`, or `NOTICE` files for every dependency.
 - Before redistribution, each bundled dependency must be matched to its upstream license and the required notices must be retained in the release artifacts. This is a documentation gap, not a reason to remove the dependency.
 
+## Dependency Freshness Review
+
+- Dependency sources are pinned as Git submodules in `.gitmodules`; this provides reproducible revisions but does not by itself prove that a revision is current.
+- The checkout does not provide one version manifest covering all third-party components. Several dependencies are tracked by commit rather than a released version.
+- A local offline review cannot establish whether each pinned revision is behind its upstream default branch. No dependency is marked as safe to upgrade automatically.
+- Before a release, compare every submodule revision with its upstream repository, record the comparison date and security advisories, then update only after compatibility and license review.
+
 ## Audit Status
 
-This document records architecture, the major-dependency inventory, the current necessity classification, and the local license-review findings. Stale-dependency review remains a separate task.
+This document records architecture, the major-dependency inventory, the current necessity classification, and local license/freshness review findings. Upstream freshness remains unconfirmed until an online revision comparison is performed.
