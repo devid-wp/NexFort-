@@ -28,7 +28,7 @@ NexFort — кастомный Telegram-клиент на базе AyuGram Deskt
 ### Codebase
 
 - [x] Найти основные директории UI
-- [ ] Найти настройки
+- [x] Найти настройки
 - [ ] Найти обработку сообщений
 - [ ] Найти navigation/chat switching
 - [ ] Найти hotkeys
