@@ -61,3 +61,7 @@ This inventory describes the AyuGram-specific surface currently included in the 
 | Any unlisted or newly discovered feature | UNKNOWN | Requires a separate product decision before cleanup. |
 
 No area is currently classified as `REMOVE`. Removal requires a confirmed product decision and a focused change with validation.
+
+## Cleanup Gate
+
+Before removing any AyuGram feature, record the reason, confirm that no supported NexFort workflow depends on it, check its build references, and define a focused validation step. Until all four checks are complete, the feature remains `KEEP` or `UNKNOWN`.
