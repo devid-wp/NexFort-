@@ -53,26 +53,31 @@ NexFort is based on AyuGram Desktop and Telegram Desktop. The application is bui
 
 ## Major Dependencies
 
-### Core framework and internal libraries
+### Required for the base client
 
 - Qt: application framework, GUI, networking, multimedia integration, and platform abstractions.
 - Desktop App libraries: `lib_base`, `lib_crl`, `lib_ui`, `lib_tl`, `lib_storage`, `lib_lottie`, `lib_qr`, `lib_translate`, `lib_webrtc`, `lib_webview`, and `lib_spellcheck`.
 - Telegram Desktop libraries: `td_mtproto`, `td_scheme`, `td_lang`, `td_ui`, `td_export`, `td_iv`, `td_tde2e`, and `td_webauthn`.
+- OpenSSL for cryptographic operations and MTProto security.
+- Storage and serialization components for accounts, sessions, caches, and local files.
 
-### Media, calls, and security
+These components are part of the Telegram target's normal link graph and are required for a functional base client, even when some individual features are not used.
+
+### Required by optional product features
 
 - FFmpeg for media decoding and frame processing.
 - WebRTC and tgcalls for real-time audio/video calls and related networking.
-- OpenSSL for cryptographic operations.
 - FIDO2/libfido2 and libcbor for passkeys/security-key support.
 - Prisma for platform or security integration used by the Telegram build.
+- Stripe for payment-related features.
 - OpenAL for audio output.
+- QR code generator for QR UI and authentication flows.
+- Spellcheck, WebView, translation, auto-update, and crash-report components for their corresponding product features.
 
 ### Rendering, compression, and utilities
 
 - rlottie for animated vector graphics.
 - zlib, minizip, lz4, and xxHash for compression, archives, and hashing.
-- QR code generator for QR UI and authentication flows.
 - KCoreAddons and platform-specific Qt integrations where enabled.
 
 ### AyuGram-specific dependencies
@@ -81,10 +86,12 @@ NexFort is based on AyuGram Desktop and Telegram Desktop. The application is bui
 - Bundled SQLite ORM and SQLite sources under `Telegram/SourceFiles/ayu/libs/` for AyuGram data storage.
 - Bundled JSON libraries under `Telegram/SourceFiles/ayu/libs/` for AyuGram settings and data exchange.
 
+These three dependencies are required by the currently included AyuGram features. Removing one would require removing or rewriting the feature that includes it.
+
 ### Bundled third-party components
 
 The repository keeps additional source or integration directories under `Telegram/ThirdParty/`, including `ffmpeg`, `tgcalls`, `libfido2`, `libcbor`, `libprisma`, `rlottie`, `QR`, `kcoreaddons`, `xxHash`, `lz4`, `hunspell`, `cmark-gfm`, `range-v3`, `GSL`, and platform input-method integrations. Their necessity, licenses, and maintenance status require separate review.
 
 ## Audit Status
 
-This document records architecture and the initial major-dependency inventory. Dependency necessity, license review, and stale-dependency review are intentionally separate tasks.
+This document records architecture, the major-dependency inventory, and the current necessity classification. License review and stale-dependency review are intentionally separate tasks.
