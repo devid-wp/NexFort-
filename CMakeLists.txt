@@ -23,6 +23,9 @@ project(Telegram
     HOMEPAGE_URL "https://ayugram.one"
 )
 
+set(DESKTOP_APP_DISABLE_AUTOUPDATE ON CACHE BOOL "" FORCE)
+set(DESKTOP_APP_DISABLE_CRASH_REPORTS ON CACHE BOOL "" FORCE)
+
 if (APPLE)
     enable_language(OBJC OBJCXX)
 endif()
