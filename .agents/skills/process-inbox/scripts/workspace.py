@@ -5,7 +5,7 @@ import datetime
 import hashlib
 import json
 import os
-from pathlib import Path, PurePosixPath
+from pathlib import Path, PurePosixPath, PureWindowsPath
 import re
 import shutil
 import signal
@@ -1401,7 +1401,10 @@ def locking_process_ids(paths):
 
 
 def normalized_path_text(path):
-	return os.path.normcase(str(Path(path).expanduser().resolve())).casefold()
+	value = str(path)
+	if re.match(r"^[A-Za-z]:[\\\\/]", value):
+		return PureWindowsPath(value).as_posix().casefold()
+	return os.path.normcase(str(Path(value).expanduser().resolve())).casefold()
 
 
 def recoverable_build_processes(records, build_root, exe, holder_pids):
