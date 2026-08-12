@@ -20,7 +20,7 @@ project(Telegram
     LANGUAGES C CXX
     VERSION ${desktop_app_version_cmake}
     DESCRIPTION "NexFort"
-    HOMEPAGE_URL "https://ayugram.one"
+    HOMEPAGE_URL "https://github.com/devid-wp/NexFort-"
 )
 
 set(DESKTOP_APP_DISABLE_AUTOUPDATE ON CACHE BOOL "" FORCE)

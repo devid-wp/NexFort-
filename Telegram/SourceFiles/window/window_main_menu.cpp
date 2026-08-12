@@ -392,7 +392,7 @@ MainMenu::MainMenu(
 
 	_telegram->setMarkedText(tr::link(
 		u"NexFort"_q,
-		u"https://ayugram.one"_q));
+		u"https://github.com/devid-wp/NexFort-"_q));
 	_telegram->setLinksTrusted();
 	_version->setMarkedText(
 		tr::link(

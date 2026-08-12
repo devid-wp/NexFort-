@@ -44,17 +44,17 @@ rpl::producer<TextWithEntities> Text() {
 		lt_gpl_link,
 		rpl::single(Ui::Text::Link(
 			"GNU GPL",
-			"https://github.com/AyuGram/AyuGramDesktop/blob/dev/LICENSE")),
+			"https://github.com/devid-wp/NexFort-/blob/main/LICENSE")),
 		lt_github_link,
 		rpl::single(Ui::Text::Link(
 			"GitHub",
-			"https://github.com/AyuGram/AyuGramDesktop")),
+			"https://github.com/devid-wp/NexFort-")),
 		tr::marked);
 }
 
 } // namespace
 
-void AboutBox(not_null<Ui::GenericBox*> box, Window::SessionController* controller) {
+void AboutBox(not_null<Ui::GenericBox*> box, Window::SessionController*) {
 	box->setTitle(rpl::single(u"NexFort"_q));
 
 	auto layout = box->verticalLayout();
@@ -89,21 +89,11 @@ void AboutBox(not_null<Ui::GenericBox*> box, Window::SessionController* controll
 	addText(Text());
 
 	box->addButton(tr::lng_close(), [=] { box->closeBox(); });
-	box->addLeftButton(
-		rpl::single(QString("@AyuGramReleases")),
-		[box, controller]
-		{
-			box->closeBox();
-			controller->showPeerByLink(Window::PeerByLinkInfo{
-				.usernameOrId = QString("ayugramreleases"),
-			});
-		});
-
 	box->setWidth(st::aboutWidth);
 }
 
 QString currentVersionText() {
-	auto result = QString::fromLatin1(AppVersionStr);
+	auto result = QString::fromLatin1(NexFortVersionStr);
 	if (cAlphaVersion()) {
 		result += u" alpha %1"_q.arg(cAlphaVersion() % 1000);
 	} else if (AppBetaVersion) {
@@ -264,4 +254,3 @@ void ArchiveHintBox(
 		box->addButton(std::move(button));
 	}
 }
-
