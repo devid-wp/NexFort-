@@ -8,8 +8,8 @@ NexFort — кастомный Telegram-клиент на базе AyuGram Deskt
 
 - [ ] Убедиться, что чистый AyuGram собирается
 - [x] Зафиксировать рабочую версию upstream
-- [x] Добавить `upstream` remote
-- [x] Настроить нормальные ветки
+- [ ] Добавить `upstream` remote
+- [ ] Настроить нормальные ветки
 - [x] Добавить `CONTRIBUTING.md`
 - [x] Добавить `CHANGELOG.md`
 - [x] Добавить `PROJECT_PLAN.md`
@@ -98,7 +98,7 @@ NexFort — кастомный Telegram-клиент на базе AyuGram Deskt
 - [x] Название окна
 - [x] Названия настроек
 - [x] Собственная версия приложения
-- [x] Убрать ненужные AyuGram branding элементы
+- [ ] Убрать ненужные AyuGram branding элементы
 - [x] Сохранить обязательные license/copyright notices
 
 ---
@@ -420,7 +420,10 @@ NexFort достаточно стабилен, чтобы использоват
 # Current Priority
 
 1. Clean build
-2. Architecture audit
-3. Command Palette
-4. Branding
-5. Только потом cleanup и redesign
+2. Запуск клиента и smoke test
+3. Отдельная platform identity и профиль данных
+4. Безопасный канал обновлений NexFort
+5. Privacy review crash, debug и session logs
+6. Завершить branding и release metadata
+7. Command Palette
+8. Только потом cleanup и redesign
