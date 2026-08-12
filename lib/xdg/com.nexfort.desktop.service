@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=com.nexfort.desktop
+Exec=@CMAKE_INSTALL_FULL_BINDIR@/NexFort

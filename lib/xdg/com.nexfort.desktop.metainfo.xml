@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component type="desktop">
+    <id>com.nexfort.desktop</id>
+    <metadata_license>CC0-1.0</metadata_license>
+    <project_license>GPL-3.0</project_license>
+    <name>NexFort</name>
+    <summary>Desktop Telegram client focused on privacy and power-user features</summary>
+    <description>
+        <p>NexFort is a Telegram Desktop client based on AyuGram Desktop.</p>
+    </description>
+    <categories>
+        <category>Network</category>
+        <category>InstantMessaging</category>
+    </categories>
+    <developer_name>NexFort Project</developer_name>
+    <url type="homepage">https://github.com/devid-wp/NexFort-</url>
+    <url type="bugtracker">https://github.com/devid-wp/NexFort-/issues</url>
+    <url type="vcs-browser">https://github.com/devid-wp/NexFort-</url>
+    <url type="contribute">https://github.com/devid-wp/NexFort-/blob/main/CONTRIBUTING.md</url>
+    <keywords>
+        <keyword>tg</keyword>
+        <keyword>telegram</keyword>
+        <keyword>tdesktop</keyword>
+        <keyword>messaging</keyword>
+        <keyword>messenger</keyword>
+        <keyword>chat</keyword>
+        <keyword>sms</keyword>
+        <keyword>im</keyword>
+        <keyword>nexfort</keyword>
+    </keywords>
+    <launchable type="desktop-id">com.nexfort.desktop.desktop</launchable>
+    <provides>
+        <binary>NexFort</binary>
+    </provides>
+</component>

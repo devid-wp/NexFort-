@@ -18,10 +18,10 @@ https://github.com/telegramdesktop/tdesktop/blob/master/LEGAL
 #endif // TDESKTOP_ALLOW_CLOSED_ALPHA
 
 // used in Updater.cpp and Setup.iss for Windows
-constexpr auto AppId = "{53F49750-6209-4FBF-9CA8-7A333C87D666}"_cs;
-constexpr auto AppNameOld = "AyuGram for Windows"_cs;
+constexpr auto AppId = "{045BFC72-FD56-4967-BDA0-EC46515316F1}"_cs;
+constexpr auto AppNameOld = "NexFort for Windows"_cs;
 constexpr auto AppName = "NexFort"_cs;
-constexpr auto AppFile = "AyuGram"_cs;
+constexpr auto AppFile = "NexFort"_cs;
 constexpr auto AppVersion = 7000009;
 constexpr auto AppVersionStr = "7.0.9";
 constexpr auto NexFortVersionStr = "0.1";
